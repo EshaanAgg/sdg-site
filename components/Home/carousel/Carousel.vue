@@ -1,11 +1,25 @@
+<template>
+  <div ref="carousel" class="carousel">
+    <CarouselItem v-for="(ele, i) in elements" :key="i">ele</CarouselItem>
+  </div>
+</template>
+
 <script>
 import { defineComponent } from '@vue/composition-api';
+import { CarouselItem } from './CarouselItem';
 
 export default defineComponent({
+  components: {
+    CarouselItem
+  },
+  data() {
+    return {
+      elements: this.$slots.default
+    };
+  },
   mounted() {
     this.arrange(0);
   },
-
   methods: {
     _mod: (n, m) => ((n % m) + m) % m,
     arrange(centerIndex) {
@@ -38,16 +52,6 @@ export default defineComponent({
         });
       });
     }
-  },
-  render(createElement) {
-    return createElement(
-      'div',
-      {
-        class: 'carousel',
-        ref: 'carousel'
-      },
-      this.$slots.default.map((el) => createElement('carousel-item', [el]))
-    );
   }
 });
 </script>
