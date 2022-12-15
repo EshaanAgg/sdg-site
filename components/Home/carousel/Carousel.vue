@@ -1,7 +1,3 @@
-<template>
-  <div></div>
-</template>
-
 <script>
 import { defineComponent } from '@vue/composition-api';
 
@@ -55,3 +51,34 @@ export default defineComponent({
   }
 });
 </script>
+
+<style>
+.carousel {
+  background-color: #ddd;
+  height: 100vh;
+  position: relative;
+}
+.carousel > div {
+  background-color: #000;
+  color: #fff;
+  width: 10vw;
+  height: 10vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 10vw;
+  font-family: sans-serif;
+  font-size: 6vw;
+}
+.carousel .dots {
+  position: absolute;
+  bottom: 0;
+  padding: 5%;
+  width: 100%;
+}
+.carousel .dots .dot {
+  background-color: #000;
+}
+</style>

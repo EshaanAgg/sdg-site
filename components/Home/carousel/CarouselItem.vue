@@ -1,4 +1,5 @@
 <template>
+  <!-- eslint-disable-next-line -->
   <div class="carousel-item" :style="style" @click="centerSelf">
     <slot></slot>
   </div>
